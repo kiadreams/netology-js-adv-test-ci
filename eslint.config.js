@@ -1,0 +1,21 @@
+import globals from 'globals';
+import js from '@eslint/js';
+
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  {
+    ignores: ['*.config.*', 'dist/', 'node_modules/', 'coverage/']
+  },
+
+  {
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+        ...globals.node
+      }
+    },
+  },
+
+  js.configs.recommended,
+]
