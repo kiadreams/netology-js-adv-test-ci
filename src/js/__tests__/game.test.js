@@ -5,13 +5,12 @@ test.each([
   ['wounded', { name: 'маг', health: 50 }, 'wounded'],
   ['healthy', { name: 'маг', health: 70 }, 'healthy'],
   ['critical', { name: 'маг', health: 10 }, 'critical'],
-])
-  ('testing getHeroStatus function: %s', (status, hero, expected) => {
+])('testing getHeroStatus function: %s', (status, hero, expected) => {
     const result = getHeroStatus(hero);
     expect(result).toBe(expected);
   });
 
-  
+
 test('testing showStatusOfAllHeroes function', () => {
   const result = showStatusOfAllHeroes([
     { name: 'мечник', health: 10 },
