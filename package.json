@@ -10,11 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/kiadreams/netology-js-adv-test-ci.git"
   },
+  "type": "module",
   "license": "ISC",
   "author": "KIA",
   "main": "index.js",
   "scripts": {
-    "tclean": "jest --clearCache",
+    "tlint": "eslint . && jest --coverage",
     "test": "jest --coverage",
     "lint": "eslint .",
     "build": "webpack --mode production",
