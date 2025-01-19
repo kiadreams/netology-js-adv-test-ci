@@ -1,20 +1,26 @@
-import { getHeroStatus } from '../game.js';
+import { getHeroStatus, showStatusOfAllHeroes } from '../game.js';
 
-test('test hero is wounded', () => {
-    const hero = {name: 'маг', health: 50};
+
+test.each([
+  ['wounded', { name: 'маг', health: 50 }, 'wounded'],
+  ['healthy', { name: 'маг', health: 70 }, 'healthy'],
+  ['critical', { name: 'маг', health: 10 }, 'critical'],
+])
+  ('testing getHeroStatus function: %s', (status, hero, expected) => {
     const result = getHeroStatus(hero);
-    expect(result).toBe('wounded');
-});
+    expect(result).toBe(expected);
+  });
 
-test('test hero is healthy', () => {
-    const hero = {name: 'маг', health: 70};
-    const result = getHeroStatus(hero);
-    expect(result).toBe('healthy');
+  
+test('testing showStatusOfAllHeroes function', () => {
+  const result = showStatusOfAllHeroes([
+    { name: 'мечник', health: 10 },
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+  ]);
+  expect(result).toEqual([
+    { name: 'мечник', health: 10 },
+    { name: 'лучник', health: 80 },
+    { name: 'маг', health: 100 },
+  ]);
 });
-
-test('test hero is critical', () => {
-    const hero = {name: 'маг', health: 10};
-    const result = getHeroStatus(hero);
-    expect(result).toBe('critical');
-});
-

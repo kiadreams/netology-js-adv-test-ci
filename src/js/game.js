@@ -7,15 +7,16 @@ export function getHeroStatus(hero) {
   return 'critical';
 }
 
-const allHeroes = [
-  { name: 'мечник', health: 10 },
-  { name: 'маг', health: 100 },
-  { name: 'лучник', health: 80 },
-]
 
 export function showStatusOfAllHeroes(heroes) {
   return heroes.sort((a, b) => a.health - b.health)
 }
 
-console.log(getHeroStatus({ name: 'маг', health: 10 }));
-console.log(showStatusOfAllHeroes(allHeroes));
+
+// const allHeroes = [
+//   { name: 'мечник', health: 10 },
+//   { name: 'маг', health: 100 },
+//   { name: 'лучник', health: 80 },
+// ]
+// console.log(getHeroStatus({ name: 'маг', health: 10 }));
+// console.log(showStatusOfAllHeroes(allHeroes));
